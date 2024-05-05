@@ -1,33 +1,41 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.add-user{
+  height: 200px;
+  padding:10px;
+  border: 1px solid orange;
+  padding-left: 50px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.display-user{
+  margin-top: 40px;
+  padding:10px;
+  border: 1px solid orange;
+   /* overflow: scroll; */
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.add-user-input{
+  width: 250px;
+  height: 35px;
+  display: block;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.add-user-button{
+  margin-top: 10px;
+  width: 254px;
+  height: 35px;
+  display: block;
+}
+
+.user-item{
+  background-color: bisque;
+  color: black;
+  width: 150px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  margin-left: 50px;
+  display: flex;
+  justify-content: space-around;
 }
