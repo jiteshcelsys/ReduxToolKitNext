@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { addUser } from '../../redux/slice';
 import { useDispatch } from 'react-redux';
+import Link from 'next/link';
 
 function AddUser() {
   const [name, setName] = useState('');
@@ -22,7 +23,7 @@ function AddUser() {
     className='add-user-input'
     />
     <button className='add-user-button' onClick={handleAdd}>Add</button>
-      
+      <Link href='/removeuser'>click</Link>
     </div>
   )
 }
