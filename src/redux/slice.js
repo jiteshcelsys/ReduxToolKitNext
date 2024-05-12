@@ -1,4 +1,4 @@
-const { createSlice, nanoid } = require("@reduxjs/toolkit");
+const { createSlice, nanoid, current } = require("@reduxjs/toolkit");
 
 {/*
 what is slice action + reducer
@@ -12,7 +12,7 @@ A function that accepts an initial state, an object full of reducer
  correspond to the reducers and state.
 */ }
 const initialState ={
-    users:[]
+    users:JSON.parse(localStorage.getItem('users'))?JSON.parse(localStorage.getItem('users')):[],
 }
 
 // inside reducers we define the action in redux toolkit
@@ -26,6 +26,10 @@ const Slice = createSlice({
                 name:action.payload,
             }
             state.users.push(data);
+            let currentUser = JSON.stringify(current(state.users));
+            // localStorage.setItem('users', currentUser);
+            localStorage.setItem('users', currentUser);
+            console.log(currentUser, 'currentUser');
         },
         removeUser: (state, action)=>{
             const data = state.users.filter((item)=>item.id!==action.payload);
