@@ -24,7 +24,10 @@ function AddUser() {
     />
     <button className='add-user-button' onClick={handleAdd}>Add</button>
       <Link href='/removeuser'>click</Link>
+      <br/>
+      <Link href='/toDo'>To do Page</Link>
     </div>
+
   )
 }
 
