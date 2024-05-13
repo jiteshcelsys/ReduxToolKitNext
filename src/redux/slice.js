@@ -12,7 +12,7 @@ A function that accepts an initial state, an object full of reducer
  correspond to the reducers and state.
 */ }
 const initialState ={
-    users:JSON.parse(localStorage.getItem('users'))?JSON.parse(localStorage.getItem('users')):[],
+    users:localStorage.getItem('users')?JSON.parse(localStorage.getItem('users')):[],
 }
 
 // inside reducers we define the action in redux toolkit
@@ -34,6 +34,7 @@ const Slice = createSlice({
         removeUser: (state, action)=>{
             const data = state.users.filter((item)=>item.id!==action.payload);
             state.users = data;
+            localStorage.setItem('users', data);
             console.log(action);
         }
     }
