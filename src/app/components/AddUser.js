@@ -26,6 +26,8 @@ function AddUser() {
       <Link href='/removeuser'>click</Link>
       <br/>
       <Link href='/toDo'>To do Page</Link>
+      <br/>
+      <Link href ='/apiUser'>api User Page</Link>
     </div>
 
   )

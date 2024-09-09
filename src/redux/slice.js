@@ -1,4 +1,4 @@
-const { createSlice, nanoid, current } = require("@reduxjs/toolkit");
+const { createSlice, nanoid, current, createAsyncThunk } = require("@reduxjs/toolkit");
 
 {/*
 what is slice action + reducer
@@ -11,7 +11,12 @@ A function that accepts an initial state, an object full of reducer
  automatically generates action creators and action types that 
  correspond to the reducers and state.
 */ }
+export const fetchUserData = createAsyncThunk("fetchUserData", async()=>{
+    const result = await fetch('https://jsonplaceholder.typicode.com/users');
+    return result.json();
+})
 const initialState ={
+    userAPIdata: [],
     users:localStorage.getItem('users')?JSON.parse(localStorage.getItem('users')):[],
 }
 
@@ -37,6 +42,13 @@ const Slice = createSlice({
             localStorage.setItem('users', data);
             console.log(action);
         }
+    },
+    extraReducers:(builder)=>{
+        builder.addCase(fetchUserData.fulfilled,(state, action)=>{
+            state.isLoading =false,
+            state.userAPIdata = action.payload
+            console.log(action.payload)
+        })
     }
 });
 export const {addUser, removeUser} =Slice.actions;
